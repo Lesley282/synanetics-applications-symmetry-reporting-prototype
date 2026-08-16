@@ -28,7 +28,7 @@ on:
 env:
   PROJECT_ID: 'tooling-synanetics' # TODO: confirm this is still your GCP project
   REGION: 'europe-west2' # TODO: update to your region
-  SERVICE: 'CHANGE-ME-prototype' # TODO: update to your service name
+  SERVICE: 'symmetry-reporting-prototype' # TODO: update to your service name
   WORKLOAD_IDENTITY_PROVIDER: 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider' # TODO: update if different
 
 jobs:
@@ -83,6 +83,7 @@ jobs:
           region: '${{ env.REGION }}'
           project_id: '${{ env.PROJECT_ID }}'
           image: 'europe-west2-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}-repo/prototype-app:latest'
+          flags: '--allow-unauthenticated'
 
       - name: 'Show output'
         run: |2-
